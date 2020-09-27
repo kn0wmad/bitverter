@@ -1,12 +1,14 @@
-# bitverter
+# bitverter-server
+
+Server version of bitverter.
 
 ## run
 
-`cargo run +nightly`
+`cargo +nightly run -p bitverter-server`
 
 ## dev
 
-`cargo +nightly watch -x '+nightly run'`
+`cargo +nightly watch -x '+nightly run -p bitverter-server'`
 
 needs:
 
