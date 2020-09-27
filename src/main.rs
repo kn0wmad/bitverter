@@ -41,12 +41,12 @@ async fn convert(params: web::Query<ConvertParams>) -> impl Responder {
     );
 
     let response = reqwest::get(&btc_usd_price_request_url).await.unwrap();
-    let btc_usd_price: NomicsPriceResponse = response.json().await.unwrap();
+    let btc_usd_price: Vec<NomicsPriceResponse> = response.json().await.unwrap();
 
-    let price = btc_usd_price.price.parse::<f64>().unwrap();
+    let price = btc_usd_price[0].price.parse::<f64>().unwrap();
     let amount = params.amount.parse::<f64>().unwrap();
 
-    let result = price * amount;
+    let result = amount / price;
 
     let body = html! {
         h1 { "USD -> BTC" }
