@@ -18,7 +18,7 @@ Complete Rust web server
 
 ### Q1 2021
 
-*	GUI alpha release
+*	Iced GUI alpha release
 *	Convert to/from USD
 
 Surprises imminent.  Stay tuned....
