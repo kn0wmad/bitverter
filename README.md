@@ -10,11 +10,13 @@ Complete basic CLI functionality
 *	Ability to convert from btc to mbtc, bits, sats and vice versa
 
 Complete Rust web server
-*	actix as a server
-*	reqwest for APIs
-*	serde for parsing responses
-*	maud for HTML templating
+*	Actix as a server - to be rewritten with Warp
+*	Reqwest for APIs
+*	Serde for parsing responses
+*	Maud for HTML templating
 
 ### Q1 2021
+
+*   Convert to/from USD
 
 Surprises imminent.  Stay tuned....
