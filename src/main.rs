@@ -42,6 +42,7 @@ fn main() {
             "bits" => println!("Enter amount in Bits:"),
             "mbtc" => println!("Enter amount in mBTC:"),
             "btc" => println!("Enter amount in BTC:"),
+            _ => panic!("Unexpected entry!"),
         }
 
         /*
