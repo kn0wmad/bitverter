@@ -8,3 +8,5 @@ edition = "2018"
 
 [dependencies]
 clap = "2.33.3"
+enum_derive = "0.1.7"
+custom_derive = "0.1.7"
