@@ -7,6 +7,7 @@ Work has just begun, please check back or feel free to reach out with any questi
 ### Q4 2020
 
 Complete basic CLI functionality
+<<<<<<< HEAD
 *	Ability to convert from btc to mbtc, bits, sats and vice versa
 *	Beta release
 
@@ -22,3 +23,18 @@ Complete Rust web server
 *	Convert to/from USD
 
 Surprises imminent.  Stay tuned....
+=======
+
+- Ability to convert from btc to mbtc, bits, sats and vice versa
+
+Complete Rust web server
+
+- actix as a server
+- reqwest for APIs
+- serde for parsing responses
+- maud for HTML templating
+
+### Q1 2021
+
+Surprises imminent. Stay tuned....
+>>>>>>> ec86f9f383f200cd081b507698287d9e1343874c

@@ -34,6 +34,7 @@ fn main() {
     loop {
         println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
 
+<<<<<<< HEAD:src/main.rs
         // Create mutable variable user_denom and bind to a new, empty instance of a String
         let mut user_denom = String::new();
         
@@ -44,5 +45,23 @@ fn main() {
         
         // bind user_denom to expression std::env::args().next().unwrap().parse().unwrap()
         let user_denom: Denomination = std::env::args().next().unwrap().parse().unwrap();
+=======
+    // create mutable variable named btc and bind to a new, empty instance of a String
+        let mut btc = String::new();
+
+    // call stdin function from the io module
+        io::stdin().read_line(&mut btc).expect("Failed to read your input");
+
+    // calls read_line method on the standard input handle to get input from user
+    // also passes one argument to read_line - &mut btc
+    // read_line takes standard input and places it into a string
+
+    // bind btc to expression btc.trim.parse - trim will remove whitespace
+    // u32 can only contain numerical characters
+        let btc: u32 = match btc.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+>>>>>>> ec86f9f383f200cd081b507698287d9e1343874c:bitverter-cli/src/main.rs
     }
 }

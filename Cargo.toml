@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [package]
 name = "bitverter"
 version = "0.1.0"
@@ -10,3 +11,7 @@ edition = "2018"
 clap = "2.33.3"
 enum_derive = "0.1.7"
 custom_derive = "0.1.7"
+=======
+[workspace]
+members = ["bitverter-server", "bitverter-cli"]
+>>>>>>> ec86f9f383f200cd081b507698287d9e1343874c
