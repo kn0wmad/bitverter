@@ -22,7 +22,7 @@ Complete Rust web server
 *	Convert to/from USD
 *   Spanish (espanol) translation for CLI app
 
-### Q2 2022
+### Q2 2021
 
 *   Full Spanish (espanol) translation
 
