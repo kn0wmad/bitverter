@@ -5,8 +5,6 @@ use std::io;
 use std::str::FromStr;
 //use clap::{App};
 
-// Create and implement an enumeration Denomination, with 4 possible values.  custom_derive to use as type &str
-
 enum Denomination {
     sats,
     bits,
@@ -21,7 +19,7 @@ impl FromStr for Denomination {
             "sats" => Self::sats,
             "bits" => Self::bits,
             "mBTC" => Self::mBTC,
-            "BTC" => Self::BTC
+            "BTC" => Self::BTC,
         }
     }
 }
@@ -34,15 +32,15 @@ fn main() {
     loop {
         println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
 
-        // Create mutable variable user_denom and bind to a new, empty instance of a String
-        let mut user_denom = String::new();
+        // Create mutable variable starting_denom and bind to a new, empty instance of a String
+        let mut starting_denom = String::new();
         
-        // Call read_line method to get user input, pass the &mut user_denom argument to read_line
+        // Call read_line method to get user input, pass the &mut starting_denom argument to read_line
         // read_line takes standard input and places it into a String
-        io::stdin().read_line(&mut user_denom)
+        io::stdin().read_line(&mut starting_denom)
             .expect("Failed to read your input");
         
-        // bind user_denom to expression std::env::args().next().unwrap().parse().unwrap()
-        let user_denom: Denomination = std::env::args().next().unwrap().parse().unwrap();
+        // bind starting_denom to expression std::env::args().next().unwrap().parse().unwrap()
+        let starting_denom: Denomination = std::env::args().next().unwrap().parse().unwrap();
     }
 }
