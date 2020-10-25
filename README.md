@@ -20,5 +20,9 @@ Complete Rust web server
 
 *	Iced GUI alpha release
 *	Convert to/from USD
+*   Spanish (espanol) translation for CLI app
+
+### Q2 2021
+*   Full Spanish (espanol) translation
 
 Surprises imminent.  Stay tuned....
