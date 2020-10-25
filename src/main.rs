@@ -5,6 +5,7 @@ use std::io;
 use std::str::FromStr;
 //use clap::{App};
 
+#[derive(Debug)]
 enum Denomination {
     sats,
     bits,
@@ -42,9 +43,9 @@ fn main() {
             .expect("Failed to read your input");
         
     // bind starting_denom to expression std::env::args().next().unwrap().parse().unwrap()
-        let starting_denom: Denomination = std::env::args().next().unwrap().parse();
+        let starting_denom: Denomination = std::env::args().next().unwrap().parse().unwrap();
 
-        println!("You have selected: {}", starting_denom);
+        println!("You have selected: {:?}", starting_denom);
         break;
     }
 }
