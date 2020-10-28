@@ -29,4 +29,4 @@ Surprises imminent.  Stay tuned....
 
 ![BipCot NoGov License](/images/bipcot144x144.png)
 
-This software is licensed under a BipCot No-Government License.  Use and reuse is permitted by anyone, except governments and the agents thereof.  More information at bipcot.org
+This software is covered under a BipCot No-Government License.  Use and reuse is permitted by anyone, except governments and the agents thereof.  More information at bipcot.org
