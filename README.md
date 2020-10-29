@@ -27,6 +27,8 @@ Complete Rust web server
 
 Surprises imminent.  Stay tuned....
 
+## License
+
 ![BipCot NoGov License](/images/bipcot144x144.png)
 
 This software is covered under a BipCot No-Government License.  Use and reuse is permitted by anyone, except governments and the agents thereof.  More information at bipcot.org
