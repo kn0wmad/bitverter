@@ -26,7 +26,7 @@ Complete Rust web server
 *   Full Spanish (espanol) translation
 
 Surprises imminent.  Stay tuned....
-
+* * *
 ## License
 
 ![BipCot NoGov License](/images/bipcot144x144.png)
