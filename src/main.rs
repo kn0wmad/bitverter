@@ -18,10 +18,10 @@ impl FromStr for Denomination {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         println!("Debugging... {:?}", s);
         match s {
-            "sats" => Ok(Self::sats),
-            "bits" => Ok(Self::bits),
-            "mBTC" => Ok(Self::mBTC),
-            "BTC" => Ok(Self::BTC),
+            "sats\n" => Ok(Self::sats),
+            "bits\n" => Ok(Self::bits),
+            "mBTC\n" => Ok(Self::mBTC),
+            "BTC\n" => Ok(Self::BTC),
             _ => Err(())
         }
     }
@@ -41,19 +41,15 @@ fn main() {
         
     // Call read_line method to get user input, pass the &mut starting_denom argument to read_line
     // read_line takes standard input and places it into a String
-        match io::stdin().read_line(&mut starting_denom) {
-            Ok(String) => {
-                println!("You have selected {}", starting_denom);
-            }
-            Err(error) => println!("Error: {}", error),
-        }
+        io::stdin().read_line(&mut starting_denom).expect("Failed to read input");
         
-    // bind starting_denom to expression parsing the string
-        if starting_denom == "sats" {
-            println!("You have selected sats??");
-        }
+        let starting_denom = Denomination::from_str(starting_denom.as_str());
 
-        //println!("You have selected: {:?}", &starting_denom);
+        println!("You have selected: {:?}", starting_denom);
+
+        // if starting_denom = Denomination::sats {
+            
+        // }
 
     // Create mutable variable desired_denom, bind to new, empty instance of a String, 
     // and request input from user
