@@ -37,28 +37,26 @@ fn main() {
     // Create mutable variable starting_denom and bind to a new, empty instance of a String
         let mut starting_denom = String::new();
         
-        println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
-        
+
     // Call read_line method to get user input, pass the &mut starting_denom argument to read_line
     // read_line takes standard input and places it into a String
-        io::stdin().read_line(&mut starting_denom).expect("Failed to read input");
+        println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
+        io::stdin().read_line(&mut starting_denom).expect("Failed to read your input");
         
+    // Bind starting_denom to correct Denomination enum variant    
         let starting_denom = Denomination::from_str(starting_denom.as_str());
 
         println!("You have selected: {:?}", starting_denom);
 
-        // if starting_denom = Denomination::sats {
-            
-        // }
+    // Request current value in the user's starting denomination
+        let mut starting_value = String::new();
 
-    // Create mutable variable desired_denom, bind to new, empty instance of a String, 
-    // and request input from user
-        /*let mut desired_denom = String::new();
+        println!("Input your current value in {:?}", starting_denom);
+        io::stdin().read_line(&mut starting_value).expect("Failed to read your input");
 
-        println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
-
-        io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
-
-        println!("You have entered {}", desired_denom);*/
+        // println!(
+        // "{}{} is {}{}",
+        // starting_value, starting_denom, converted_value, desired_denom
+        // );
     }
 }
