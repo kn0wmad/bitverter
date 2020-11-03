@@ -61,10 +61,14 @@ fn main() {
         io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
 
         let desired_denom = Denomination::from_str(desired_denom.as_str());
-        println!("Input your current value in {:?}", desired_denom);
+        println!("You have selected {:?}", desired_denom);
 
     // Calculate conversion
-        // let mut converted_value: f64 = starting_value.parse::<f64>() * 100.0;
+        let starting_value: f64 = starting_value.trim().parse().unwrap();
+
+        let converted_value: f64 = starting_value / 100.0;
+
+        println!("{}", converted_value);
 
     // Return converted value in desired denomination
         // println!(
