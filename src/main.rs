@@ -16,12 +16,12 @@ enum Denomination {
 impl FromStr for Denomination {
     type Err = ();
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        println!("Debugging... {:?}", s);
-        match s {
-            "sats\n" => Ok(Self::sats),
-            "bits\n" => Ok(Self::bits),
-            "mBTC\n" => Ok(Self::mBTC),
-            "BTC\n" => Ok(Self::BTC),
+        // println!("Debugging... {:?}", s);
+        match s.trim() {
+            "sats" => Ok(Self::sats),
+            "bits" => Ok(Self::bits),
+            "mBTC" => Ok(Self::mBTC),
+            "BTC" => Ok(Self::BTC),
             _ => Err(())
         }
     }
@@ -54,9 +54,24 @@ fn main() {
         println!("Input your current value in {:?}", starting_denom);
         io::stdin().read_line(&mut starting_value).expect("Failed to read your input");
 
+    // Repeat process to get user's desired denomination and bind to correct Denomination enum variant
+        let mut desired_denom = String::new();
+
+        println!("Input your desired denomination: ");
+        io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
+
+        let desired_denom = Denomination::from_str(desired_denom.as_str());
+        println!("Input your current value in {:?}", desired_denom);
+
+    // Calculate conversion
+        // let mut converted_value: f64 = starting_value.parse::<f64>() * 100.0;
+
+    // Return converted value in desired denomination
         // println!(
         // "{}{} is {}{}",
         // starting_value, starting_denom, converted_value, desired_denom
         // );
+
+        break
     }
 }
