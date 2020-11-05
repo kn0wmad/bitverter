@@ -65,16 +65,23 @@ fn main() {
 
     // Calculate conversion
         let starting_value: f64 = starting_value.trim().parse().unwrap();
+        
+        if starting_denom(BTC) {
+
+        }   else if starting_denom::Denomination::mBTC {
+
+        }   else if starting_denom::Denomination::bits {
+
+        }   else if starting_denom::Denomination::sats {
+
+        }   else    {
+            return;
+        }
 
         let converted_value: f64 = starting_value / 100.0;
 
-        println!("{}", converted_value);
-
     // Return converted value in desired denomination
-        // println!(
-        // "{}{} is {}{}",
-        // starting_value, starting_denom, converted_value, desired_denom
-        // );
+        println!("{}", converted_value);
 
         break
     }
