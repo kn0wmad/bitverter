@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bitverter</title>
+</head>
+
+<body style='margin: 0; padding: 0; width: 100%; height: 100%;'>
+    <!-- <script src="wtf, no, please no javascript"></script> -->
+    <script>
+        window.wasm_bindgen(`/client_side_web_app_bg.wasm`).then(() => {
+                const { App } = window.wasm_bindgen
+                new App()
+            })
+    </script>
+    <h1>Welcome to Bitverter!</h1>
+    <p>Cool things will happen here soon...</p>
+</body>
+</html>

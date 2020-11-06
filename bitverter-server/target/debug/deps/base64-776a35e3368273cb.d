@@ -1,0 +1,14 @@
+/home/hal/code/rust/bitverter/bitverter-server/target/debug/deps/base64-776a35e3368273cb.rmeta: /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/lib.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/chunked_encoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/display.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/mod.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/decoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/tables.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/mod.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/encoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/encode.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/decode.rs
+
+/home/hal/code/rust/bitverter/bitverter-server/target/debug/deps/base64-776a35e3368273cb.d: /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/lib.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/chunked_encoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/display.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/mod.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/decoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/tables.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/mod.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/encoder.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/encode.rs /home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/decode.rs
+
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/lib.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/chunked_encoder.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/display.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/mod.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/read/decoder.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/tables.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/mod.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/write/encoder.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/encode.rs:
+/home/hal/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.12.3/src/decode.rs:
