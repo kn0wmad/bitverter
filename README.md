@@ -11,7 +11,7 @@ Complete basic CLI functionality
 *	Beta release
 
 Complete Rust web server
-*	Actix as a server - to be rewritten with Warp
+*	Warp as server
 *	Reqwest for APIs
 *	Serde for parsing responses
 *	Maud for HTML templating
