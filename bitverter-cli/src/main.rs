@@ -63,25 +63,93 @@ fn main() {
         let desired_denom = Denomination::from_str(desired_denom.as_str());
         println!("You have selected {:?}", desired_denom);
 
-    // Calculate conversion
+    // Calculate conversion and return converted result to user
+    // Possibilites are BTC, mBTC, bits, or sats -> BTC, mBTC, bits, or sats
         let starting_value: f64 = starting_value.trim().parse().unwrap();
         
-        if starting_denom(BTC) {
-
-        }   else if starting_denom::Denomination::mBTC {
-
-        }   else if starting_denom::Denomination::bits {
-
-        }   else if starting_denom::Denomination::sats {
-
-        }   else    {
-            return;
+        if starting_denom == Self::BTC && desired_denom == Self::BTC {
+            let converted_value:f64 = starting_value;
+            println!("{} BTC = {} BTC", starting_value, converted_value);
+        }   
+        
+        else if starting_denom == Self::BTC && desired_denom == Self::mBTC {
+            let converted_value:f64 = starting_value / 1000.0;
+            println!("{} BTC = {} mBTC", starting_value, converted_value);
+        }   
+        
+        else if starting_denom == Self::BTC && desired_denom == Self::bits {
+            let converted_value:f64 = starting_value / 1000000.0;
+            println!("{} BTC = {} bits", starting_value, converted_value);
+        }   
+        
+        else if starting_denom == Self::BTC && desired_denom == Self::sats {
+            let converted_value:f64 = starting_value * 100000000.0;
+            println!("{} BTC = {} sats", starting_value, converted_value);
+        }   
+        
+        else if starting_denom == Self::mBTC && desired_denom == Self::BTC {
+            let converted_value:f64 = starting_value / 1000.0;
+            println!("{} mBTC = {} BTC", starting_value, converted_value);
         }
 
-        let converted_value: f64 = starting_value / 100.0;
+        else if starting_denom == Self::mBTC && desired_denom == Self::mBTC {
+            let converted_value:f64 = starting_value;
+            println!("{} mBTC = {} mBTC", starting_value, converted_value);
+        }  
 
-    // Return converted value in desired denomination
-        println!("{}", converted_value);
+        else if starting_denom == Self::mBTC && desired_denom == Self::bits {
+            let converted_value:f64 = starting_value * 1000.0;
+            println!("{} mBTC = {} bits", starting_value, converted_value);
+        }  
+
+        else if starting_denom == Self::mBTC && desired_denom == Self::sats {
+            let converted_value:f64 = starting_value * 100000.0;
+            println!("{} mBTC = {} sats", starting_value, converted_value);
+        }
+        
+        else if starting_denom == Self::bits && desired_denom == Self::BTC {
+            let converted_value:f64 = starting_value / 1000000.0;
+            println!("{} bits = {} BTC", starting_value, converted_value);
+        } 
+
+        else if starting_denom == Self::bits && desired_denom == Self::mBTC {
+            let converted_value:f64 = starting_value / 1000.0;
+            println!("{} bits = {} mBTC", starting_value, converted_value);
+        }
+
+        else if starting_denom == Self::bits && desired_denom == Self::bits {
+            let converted_value:f64 = starting_value;
+            println!("{} bits = {} bits", starting_value, converted_value);
+        }
+
+        else if starting_denom == Self::bits && desired_denom == Self::sats {
+            let converted_value:f64 = starting_value * 100.0;
+            println!("{} bits = {} sats", starting_value, converted_value);
+        }
+        
+        else if starting_denom == Self::sats && desired_denom == Self::BTC {
+            let converted_value:f64 = starting_value / 100000000.0;
+            println!("{} sats = {} BTC", starting_value, converted_value);
+        }
+
+        else if starting_denom == Self::sats && desired_denom == Self::mBTC {
+            let converted_value:f64 = starting_value / 100000.0;
+            println!("{} sats = {} mBTC", starting_value, converted_value);
+        }   
+
+        else if starting_denom == Self::sats && desired_denom == Self::bits {
+            let converted_value:f64 = starting_value / 100.0;
+            println!("{} sats = {} bits", starting_value, converted_value);
+        }   
+
+        else if starting_denom == Self::sats && desired_denom == Self::sats {
+            let converted_value:f64 = starting_value;
+            println!("{} sats = {} sats", starting_value, converted_value);
+        }   
+        
+        else    {
+            return
+        }
 
         break
     }
