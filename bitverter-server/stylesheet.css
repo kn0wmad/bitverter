@@ -1,0 +1,53 @@
+body {
+    background-color: darkslategray;
+    font-family: monoid;
+}
+
+h1  {
+    background-color: slategrey; 
+    text-align: center;
+    font-family: monoid;
+    text-shadow: 2px 2px darkslategray;
+
+}
+
+h2  {
+    text-align: center;
+    font-family: monoid;
+}
+
+p   {
+    font-family: monoid;
+}
+
+hr  {
+    width: fit-content;
+    height: 5px;
+    color: slategray;
+    background-color: slategray;
+}
+
+/* Top Navigation */
+.topnav {
+    background-color: slategray;
+    overflow: hidden;
+    font-family: monoid;
+    }
+
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    }
+
+.topnav a:hover {
+    background-color: rgb(116, 116, 116);
+    color: black;
+    }
+
+.topnav a:active {
+    background-color: rgb(16, 121, 16);
+    color: white;
+    }
