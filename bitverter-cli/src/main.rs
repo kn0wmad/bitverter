@@ -2,30 +2,9 @@
 
 use std::io;
 
-// #[derive(Debug)]
-// enum Denomination {
-//     Sats,
-//     Bits,
-//     MilliBTC,
-//     BTC // -> // BTC(u64)
-// }
-
-// impl FromStr for Denomination {
-//     type Err = ();
-//     fn from_str(s: &str, v: &str) -> Result<u64, u64::Err> {
-//         // println!("Debugging... {:?}", s);
-//         match s.trim() {
-//             "sats" => Ok(),
-//             "bits" => Ok(),
-//             "mBTC" => Ok(),
-//             "BTC" => Ok(),
-//             _ => Err(())
-//         }
-//     }
-// }
+// Take a value and apply the correct conversion to sats, based on denomination provided
 
 fn from_denom_to_sats(starting_denom: &str, val: &str) -> Option<u64> {
-    // println!("Debugging... {:?}", s);
 
     let v = val.parse::<u64>().unwrap();
 
@@ -38,10 +17,9 @@ fn from_denom_to_sats(starting_denom: &str, val: &str) -> Option<u64> {
     }
 }
 
-fn to_string_from_denom(desired_denom: &str, sats: u64) -> Option<String> {
-    // let v = val.parse::<u64>().unwrap();
+// Take sats calculated and denomination provided and return a string based on denomination provided
 
-    // Some(format!("{}{}", s))
+fn to_string_from_denom(desired_denom: &str, sats: u64) -> Option<String> {
 
     match desired_denom.trim() {
         "sats" => Some(format!("{} {}", sats, desired_denom)),
@@ -61,18 +39,17 @@ fn main() {
     println!("Hola! Bienvenidos a Bitverter!!");
 
 // Create mutable variable starting_denom and bind to a new, empty instance of a String
+// Call read_line method to get user input, pass the &mut starting_denom argument to read_line
+// read_line takes standard input and places it into a String - trim the result and print back to user
     let mut starting_denom = String::new();
     
-// Call read_line method to get user input, pass the &mut starting_denom argument to read_line
-// read_line takes standard input and places it into a String
     println!("Enter your current denomination (sats, bits, mBTC, or BTC): ");
     io::stdin().read_line(&mut starting_denom).expect("Failed to read your input");
+  
     let starting_denom = starting_denom.trim();
-
-// Bind starting_denom to correct Denomination enum variant    
     println!("You have selected: {:?}", starting_denom);
 
-// Request current value in the user's starting denomination
+// Repeat above process to request current value in the user's starting denomination, then perform sats conversion
     let mut starting_value = String::new();
 
     println!("Input your current value in {:?}", starting_denom);
@@ -83,23 +60,17 @@ fn main() {
 
 // OUTPUT CODE
 
-    // notes
-    // keep in mind, sats will only be u64
-    // whenever there's other denominations, they should only be strings that are output from a function
-
-    // match for starting input string to convert to sats
-
-// Repeat process to get user's desired denomination and bind to correct Denomination enum variant
+// Repeat process from above (lines 46 - 56) to get user's desired denomination
     let mut desired_denom = String::new();
 
-    println!("Input your desired denomination: ");
+    println!("Input your desired denomination (sats, bits, mBTC, or BTC): ");
     io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
 
     let desired_denom = desired_denom.trim();
     println!("You have selected {:?}", desired_denom);
 
-    println!("{}", to_string_from_denom(&desired_denom, starting_sats).unwrap());
-    // println!("{:?} {:?} = {:?} {:?}", starting_value, starting_denom, converted_value, desired_denom)
+    // println!("{}", to_string_from_denom(&desired_denom, starting_sats).unwrap());
+    println!("{} {} = {} {}", starting_value, starting_denom, starting_sats, desired_denom);
 }
 
 // Calculation functions
