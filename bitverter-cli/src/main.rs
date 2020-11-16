@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+// use rust_decimal::prelude::*;
 use std::io;
 
 // Take a value and apply the correct conversion to sats, based on denomination provided
@@ -57,6 +58,7 @@ fn main() {
     
     let starting_value = starting_value.trim();
     let starting_sats = from_denom_to_sats(&starting_denom, &starting_value).unwrap();
+    // let starting_sats_string = Decimal::from_str(starting_sats).unwrap();
 
 // OUTPUT CODE
 

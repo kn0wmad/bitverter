@@ -2,6 +2,8 @@ use warp::Filter;
 extern crate pretty_env_logger;
 #[macro_use] extern crate log;
 
+// const API_URL: &str = "https://api.nomics.com/v1/currencies/ticker?key={}&ids=BTC&interval=1d&convert=USD";
+
 #[tokio::main]
 async fn main() {
     pretty_env_logger::init();
