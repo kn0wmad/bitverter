@@ -69,7 +69,8 @@ fn main() {
     println!("{} {} = {} {}", starting_value, starting_denom, starting_sats, desired_denom);
 }
 
-// Calculation functions
+// CALCULATION FUNCTIONS
+
 fn div(input: Rc<String>, scale: u32) -> Rc<String> {
     let from_string = Decimal::from_str(&input);
     let divisor = Decimal::new(1, scale);
