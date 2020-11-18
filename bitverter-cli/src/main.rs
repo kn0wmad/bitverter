@@ -1,27 +1,21 @@
-#![allow(dead_code)]
-
-// use rust_decimal::prelude::*;
-use std::io;
+use std::{ io, rc::Rc };
+use rust_decimal::prelude::*;
 
 // Take a value and apply the correct conversion to sats, based on denomination provided
 
-fn from_denom_to_sats(starting_denom: &str, val: &str) -> Option<u64> {
-
-    let v = val.parse::<u64>().unwrap();
-
+fn from_denom_to_sats(starting_denom: &str, val: Rc<String>) -> Option<Rc<String>> {
     match starting_denom.trim() {
-        "sats" => Some(v),
-        "bits" => Some(bits_to_sats(v)),
-        "mBTC" => Some(mbtc_to_sats(v)),
-        "BTC" => Some(btc_to_sats(v)),
+        "sats" => Some(val),
+        "bits" => Some(bits_to_sats(val)),
+        "mBTC" => Some(mbtc_to_sats(val)),
+        "BTC" => Some(btc_to_sats(val)),
         _ => None
     }
 }
 
 // Take sats calculated and denomination provided and return a string based on denomination provided
 
-fn to_string_from_denom(desired_denom: &str, sats: u64) -> Option<String> {
-
+fn to_string_from_denom(desired_denom: &str, sats: Rc<String>) -> Option<String> {
     match desired_denom.trim() {
         "sats" => Some(format!("{} {}", sats, desired_denom)),
         "bits" => Some(format!("{} {}", sats_to_bits(sats), desired_denom)),
@@ -56,8 +50,8 @@ fn main() {
     println!("Input your current value in {:?}", starting_denom);
     io::stdin().read_line(&mut starting_value).expect("Failed to read your input");
     
-    let starting_value = starting_value.trim();
-    let starting_sats = from_denom_to_sats(&starting_denom, &starting_value).unwrap();
+    let starting_value = Rc::new(starting_value.trim().to_owned());
+    let starting_sats = from_denom_to_sats(&starting_denom, Rc::clone(&starting_value)).unwrap();
     // let starting_sats_string = Decimal::from_str(starting_sats).unwrap();
 
 // OUTPUT CODE
@@ -71,31 +65,62 @@ fn main() {
     let desired_denom = desired_denom.trim();
     println!("You have selected {:?}", desired_denom);
 
-    // println!("{}", to_string_from_denom(&desired_denom, starting_sats).unwrap());
+    println!("{}", to_string_from_denom(&desired_denom, Rc::clone(&starting_sats)).unwrap());
     println!("{} {} = {} {}", starting_value, starting_denom, starting_sats, desired_denom);
 }
 
 // Calculation functions
-fn sats_to_btc(input: u64) -> u64 {
-    input / 100000000
+fn div(input: Rc<String>, scale: u32) -> Rc<String> {
+    let from_string = Decimal::from_str(&input);
+    let divisor = Decimal::new(1, scale);
+
+    match from_string {
+        Ok(num) => {
+            Rc::new(divisor.checked_div(num).unwrap().to_string())
+        }
+        Err(_) => Rc::new("Error".to_owned())
+    }
+    // input / 100000000
 }
 
-fn sats_to_mbtc(input: u64) -> u64 {
-    input / 100000
+fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
+    let from_string = Decimal::from_str(&input);
+    let multiplier = Decimal::new(1, scale);
+
+    match from_string {
+        Ok(num) => {
+            Rc::new(num.checked_mul(multiplier).unwrap().to_string())
+        }
+        Err(_) => Rc::new("Error".to_owned())
+    }
+    // input / 100000000
 }
 
-fn sats_to_bits(input: u64) -> u64 {
-    input / 100
+fn sats_to_btc(input: Rc<String>) -> Rc<String> {
+    div(input, 8)
 }
 
-fn bits_to_sats(input: u64) -> u64 {
-    input * 100
+fn sats_to_mbtc(input: Rc<String>) -> Rc<String> {
+    div(input, 5)
+    // input / 100000
 }
 
-fn mbtc_to_sats(input: u64) -> u64 {
-    input * 100000
+fn sats_to_bits(input: Rc<String>) -> Rc<String> {
+    div(input, 2)
+    // input / 100
 }
 
-fn btc_to_sats(input: u64) -> u64 {
-    input * 100000000
+fn bits_to_sats(input: Rc<String>) -> Rc<String> {
+    mul(input, 2)
+    // input * 100
+}
+
+fn mbtc_to_sats(input: Rc<String>) -> Rc<String> {
+    mul(input, 5)
+    // input * 100000
+}
+
+fn btc_to_sats(input: Rc<String>) -> Rc<String> {
+    mul(input, 8)
+    // input * 100000000
 }
