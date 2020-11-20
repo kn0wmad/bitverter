@@ -1,5 +1,6 @@
 use warp::Filter;
 use maud::{ DOCTYPE, html, Markup, Render };
+// use serde::{ Serialize, Deserialize };
 extern crate pretty_env_logger;
 #[macro_use] extern crate log;
 
@@ -15,11 +16,17 @@ impl Render for Stylesheet {
 
 // const API_URL: &str = "https://api.nomics.com/v1/currencies/ticker?key={}&ids=BTC&interval=1d&convert=USD";
 
+// #[derive(Deserialize)]
+// struct NomicsPriceResponse {
+//     price: String,
+// }
+
 #[tokio::main]
 async fn main() {
 
     pretty_env_logger::init();
 
+    // GET /
     let index = warp::get()
         .and(warp::path::end())
         .and(warp::fs::file("./index.html"));

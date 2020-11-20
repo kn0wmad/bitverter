@@ -58,6 +58,7 @@ dependencies = [
  "log",
  "maud",
  "pretty_env_logger",
+ "serde",
  "tokio",
  "warp",
 ]
