@@ -6,24 +6,28 @@ Work has just begun, please check back or feel free to reach out with any questi
 
 ### Q4 2020
 
+Currency Conversion library
+- [x]   Currency conversion library to convert from btc to mbtc, bits, sats and vice versa
+- [ ]   Unit tests
+
 Complete basic CLI functionality
-*	Ability to convert from btc to mbtc, bits, sats and vice versa
-*	Beta release
+- [x]   Terminal UI for conversions
+- [ ]   Beta release 
 
 Complete Rust web server
-*	Warp as server
-*	Reqwest for APIs
-*	Serde for parsing responses
-*	Maud for HTML templating
+- [ ]   Warp as server
+- [ ]   Reqwest for APIs
+- [ ]   Serde for parsing responses
+- [ ]   Maud for HTML templating
 
 ### Q1 2021
 
-*	Iced GUI alpha release
-*	Convert to/from USD
-*   Spanish (espanol) translation for CLI app
+- [ ]   Iced GUI alpha release
+- [ ]   Convert to/from USD
+- [ ]   Spanish (espanol) translation for CLI app
 
 ### Q2 2021
-*   Full Spanish (espanol) translation
+- [ ]   Full Spanish (espanol) translation
 
 Surprises imminent.  Stay tuned....
 * * *
