@@ -65,18 +65,18 @@ fn main() {
     let desired_denom = desired_denom.trim();
     println!("You have selected {:?}", desired_denom);
 
-    println!("{}", to_string_from_denom(&desired_denom, Rc::clone(&starting_sats)).unwrap());
-    println!("{} {} = {} {}", starting_value, starting_denom, starting_sats, desired_denom);
+    let desired_value = to_string_from_denom(&desired_denom, Rc::clone(&starting_sats)).unwrap();
+    println!("{} {} = {} {}", starting_value, starting_denom, desired_value, desired_denom);
 }
 
 // CALCULATION FUNCTIONS
 
 fn div(input: Rc<String>, scale: u32) -> Rc<String> {
     let from_string = Decimal::from_str(&input);
-    let divisor = Decimal::new(1, scale);
+    let num = Decimal::new(1, scale);
 
     match from_string {
-        Ok(num) => {
+        Ok(divisor) => {
             Rc::new(divisor.checked_div(num).unwrap().to_string())
         }
         Err(_) => Rc::new("Error".to_owned())
@@ -86,11 +86,11 @@ fn div(input: Rc<String>, scale: u32) -> Rc<String> {
 
 fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
     let from_string = Decimal::from_str(&input);
-    let multiplier = Decimal::new(1, scale);
+    let num = Decimal::new(1, scale);
 
     match from_string {
-        Ok(num) => {
-            Rc::new(num.checked_mul(multiplier).unwrap().to_string())
+        Ok(muliplier) => {
+            Rc::new(muliplier.checked_mul(num).unwrap().to_string())
         }
         Err(_) => Rc::new("Error".to_owned())
     }
@@ -98,30 +98,31 @@ fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
 }
 
 fn sats_to_btc(input: Rc<String>) -> Rc<String> {
-    div(input, 8)
+    mul(input, 8)
+    // input / 100000000
 }
 
 fn sats_to_mbtc(input: Rc<String>) -> Rc<String> {
-    div(input, 5)
+    mul(input, 5)
     // input / 100000
 }
 
 fn sats_to_bits(input: Rc<String>) -> Rc<String> {
-    div(input, 2)
+    mul(input, 2)
     // input / 100
 }
 
 fn bits_to_sats(input: Rc<String>) -> Rc<String> {
-    mul(input, 2)
+    div(input, 2)
     // input * 100
 }
 
 fn mbtc_to_sats(input: Rc<String>) -> Rc<String> {
-    mul(input, 5)
+    div(input, 5)
     // input * 100000
 }
 
 fn btc_to_sats(input: Rc<String>) -> Rc<String> {
-    mul(input, 8)
+    div(input, 8)
     // input * 100000000
 }
