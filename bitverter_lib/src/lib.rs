@@ -1,14 +1,6 @@
 use std::rc::Rc;
 use rust_decimal::prelude::*;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
-
 pub fn div(input: Rc<String>, scale: u32) -> Rc<String> {
     let from_string = Decimal::from_str(&input);
     let num = Decimal::new(1, scale);
@@ -63,4 +55,12 @@ pub fn mbtc_to_sats(input: Rc<String>) -> Rc<String> {
 pub fn btc_to_sats(input: Rc<String>) -> Rc<String> {
     div(input, 8)
     // input * 100000000
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
 }
