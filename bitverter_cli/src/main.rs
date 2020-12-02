@@ -35,21 +35,22 @@ fn main() {
 // Call read_line method to get user input, pass the &mut starting_denom argument to read_line
 // read_line takes standard input and places it into a String - trim the result and print back to user
     let mut starting_denom = String::new();
-    
+
     println!("Enter your current denomination (Sats, Bits, mBTC, or BTC): ");
     io::stdin().read_line(&mut starting_denom).expect("Failed to read your input");
-  
+
     let starting_denom = starting_denom.trim();
-    println!("You have selected: {:?}\n", starting_denom.to_lowercase());
+    println!("You have selected: {:?}\n", starting_denom);
 
 // Repeat above process to request current value in the user's starting denomination, then perform sats conversion
     let mut starting_value = String::new();
 
     println!("Input your current value in {:?}", starting_denom.to_lowercase());
     io::stdin().read_line(&mut starting_value).expect("Failed to read your input");
-    
+
     let starting_value = Rc::new(starting_value.trim().to_owned());
-    let starting_sats = from_denom_to_sats(&starting_denom, Rc::clone(&starting_value)).unwrap();
+    let starting_sats = from_denom_to_sats(&starting_denom, Rc::clone(&starting_value))
+        .expect("Please enter a valid denomination");
 
 // Repeat process from above again to get user's desired denomination
     let mut desired_denom = String::new();
@@ -58,10 +59,11 @@ fn main() {
     io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
 
     let desired_denom = desired_denom.trim();
-    println!("You have selected {:?}\n", desired_denom.to_lowercase());
+    println!("You have selected {:?}\n", desired_denom);
 
 // Take string of calculated value and return the full conversion to the user
 
-    let desired_value = to_string_from_denom(&desired_denom, Rc::clone(&starting_sats)).unwrap();
-    println!("{} {} = {}", starting_value, starting_denom.to_lowercase(), desired_value.to_lowercase());
+    let desired_value = to_string_from_denom(&desired_denom, Rc::clone(&starting_sats))
+        .expect("Please enter a valid denomination");
+    println!("{} {} = {}", starting_value, starting_denom, desired_value);
 }

@@ -11,7 +11,6 @@ pub fn div(input: Rc<String>, scale: u32) -> Rc<String> {
         }
         Err(_) => Rc::new("Error".to_owned())
     }
-    // input / 100000000
 }
 
 pub fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
@@ -24,37 +23,30 @@ pub fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
         }
         Err(_) => Rc::new("Error".to_owned())
     }
-    // input / 100000000
 }
 
 pub fn sats_to_btc(input: Rc<String>) -> Rc<String> {
-    mul(input, 8)
-    // input / 100000000
+    mul(input, 8) // input * 100000000
 }
 
 pub fn sats_to_mbtc(input: Rc<String>) -> Rc<String> {
-    mul(input, 5)
-    // input / 100000
+    mul(input, 5) // input * 100000
 }
 
 pub fn sats_to_bits(input: Rc<String>) -> Rc<String> {
-    mul(input, 2)
-    // input / 100
+    mul(input, 2) // input * 100
 }
 
 pub fn bits_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 2)
-    // input * 100
+    div(input, 2) // input / 100
 }
 
 pub fn mbtc_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 5)
-    // input * 100000
+    div(input, 5) // input / 100000
 }
 
 pub fn btc_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 8)
-    // input * 100000000
+    div(input, 8) // input / 100000000
 }
 
 #[cfg(test)]
