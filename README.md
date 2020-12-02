@@ -1,5 +1,7 @@
 # Bitverter - A simple Bitcoin conversion tool
 
+Bitverter is a simple tool written in Rust for doing cryptocurrency conversions.  The beta release supports denomination conversions only, and will be live in early December.
+
 Work has just begun, please check back or feel free to reach out with any questions or comments :)
 
 ## Bitverter Roadmap
@@ -12,7 +14,7 @@ Currency Conversion library
 
 Complete basic CLI functionality
 - [x]   Terminal UI for conversions
-- [ ]   Beta release 
+- [ ]   Beta release
 
 Complete Rust web server
 - [ ]   Warp as server
