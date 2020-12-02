@@ -1,2 +1,2 @@
 [workspace]
-members = ["bitverter-server", "bitverter-cli"]
+members = [ "bitverter_cli", "bitverter_lib", "bitverter_server" ]

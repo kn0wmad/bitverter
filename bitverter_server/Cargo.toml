@@ -1,5 +1,5 @@
 [package]
-name = "bitverter-server"
+name = "bitverter_server"
 version = "0.1.0"
 authors = ["kn0wmad <kn0wmad@protonmail.com>"]
 edition = "2018"
