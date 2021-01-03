@@ -10,13 +10,20 @@ Currently Bitverter is only built for the Linux command line.  If you are even a
 
 1.  Install Rust using rustup (https://rustup.rs/)
 2.  Open a terminal and clone the git repo
-```git clone https://github.com/kn0wmad/bitverter.git```
+
+`git clone https://github.com/kn0wmad/bitverter.git`
+
 3.  Navigate to the folder
-```cd bitverter```
+
+`cd bitverter`
+
 4.  Run the tests (optional)
-```cargo test```
+
+`cargo test`
+
 5.  Run the program
-```cargo run```
+
+`cargo run`
 
 ## Bitverter Roadmap
 
@@ -24,13 +31,14 @@ Currently Bitverter is only built for the Linux command line.  If you are even a
 
 Currency Conversion library
 - [x]   Currency conversion library to convert from btc to mbtc, bits, sats and vice versa
-- [ ]   Unit tests
+- [x]   Unit tests
 
 Complete basic CLI functionality
 - [x]   Terminal UI for conversions
 - [ ]   Beta release
 
 ### Q1 2021
+- [ ]   Add a match statement to require a valid denomination
 
 - [ ]   Iced GUI alpha release
 - [ ]   Convert to/from USD

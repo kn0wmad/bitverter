@@ -57,10 +57,13 @@ mod tests {
     fn check_divide() {
         assert_eq!(Rc::new("152135088".to_string()), btc_to_sats(Rc::new("1.52135088".to_string())));
         assert_eq!(Rc::new("100000000".to_string()), btc_to_sats(Rc::new("1".to_string())));
+        // assert_eq!(Rc::new("5786134457").to_string()), btc_to_
     }
 
     #[test]
     fn check_multiply() {
         assert_eq!(Rc::new("1.000000000".to_string()), sats_to_btc(Rc::new("100000000.0".to_string())));
+        assert_eq!(Rc::new("1.52135088".to_string()), sats_to_btc(Rc::new("152135088".to_string())));
+        assert_eq!(Rc::new("0.10000".to_string()), sats_to_mbtc(Rc::new("10000".to_string())));
     }
 }
