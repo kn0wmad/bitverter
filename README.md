@@ -35,7 +35,7 @@ Currency Conversion library
 
 Complete basic CLI functionality
 - [x]   Terminal UI for conversions
-- [ ]   Beta release
+- [x]   Beta release
 
 ### Q1 2021
 - [ ]   Add a match statement to require a valid denomination
