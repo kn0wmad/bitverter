@@ -13,9 +13,9 @@ Currently Bitverter is only built for the Linux command line.  If you are even a
 
 `git clone https://github.com/kn0wmad/bitverter.git`
 
-3.  Navigate to the folder
+3.  Navigate to the CLI program folder
 
-`cd bitverter`
+`cd bitverter/bitverter_cli`
 
 4.  Run the tests (optional)
 
