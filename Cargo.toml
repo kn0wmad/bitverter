@@ -1,7 +1,7 @@
 [workspace]
 members = [ "bitverter_cli", "bitverter_lib", "bitverter_server" ]
 
-authors = [ "David Croisant <kn0wmad@protonmail.com>" ]
+authors = [ "kn0wmad <kn0wmad@protonmail.com>" ]
 
 description = [ "A basic bitcoin denomination conversion tool" ]
 
