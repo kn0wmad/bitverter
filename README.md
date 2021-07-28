@@ -37,7 +37,7 @@ Complete basic CLI functionality
 - [x]   Terminal UI for conversions
 - [x]   Beta release
 
-### Q1 2021
+### Q1 2022
 - [ ]   Add a match statement to require a valid denomination
 
 - [ ]   Iced GUI alpha release
@@ -50,13 +50,14 @@ Complete Rust web server
 - [ ]   Serde for parsing responses
 - [ ]   Maud for HTML templating
 
-### Q2 2021
+### Q2 2022
 - [ ]   Full Spanish (espanol) translation
 
 Surprises imminent.  Stay tuned....
 * * *
+
 ## License
 
 ![BipCot NoGov License](/images/bipcot144x144.png)
 
-This software is covered under a *modified* BipCot No-Government License.  Use and reuse is permitted by anyone, except governments and the agents thereof.  More information at bipcot.org
+This software is covered under a *modified* BipCot No-Government License.  Use and reuse is permitted by anyone, except governments and the agents thereof.
