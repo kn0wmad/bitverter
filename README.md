@@ -39,9 +39,8 @@ Complete basic CLI functionality
 - [x]   Terminal UI for conversions
 - [x]   Beta release
 
-### Q1 2022
+### Future features
 - [ ]   Add a match statement to require a valid denomination
-
 - [ ]   Iced GUI alpha release
 - [ ]   Convert to/from USD
 - [ ]   Spanish (espanol) translation for CLI app
@@ -52,8 +51,8 @@ Complete Rust web server
 - [ ]   Serde for parsing responses
 - [ ]   Maud for HTML templating
 
-### Q2 2022
-- [ ]   Full Spanish (espanol) translation
+### Moonshots
+- [ ]   Multi-language support (espanol first)
 
 * * *
 
