@@ -29,8 +29,6 @@ Currently Bitverter is only built for the Linux command line.  If you are even a
 
 **Unfortunately, I have shifted focus, but do plan to revisit this project in the mid-term**
 
-### Q4 2020
-
 Currency Conversion library
 - [x]   Currency conversion library to convert from btc to mbtc, bits, sats and vice versa
 - [x]   Unit tests
