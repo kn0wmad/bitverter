@@ -44,13 +44,15 @@ Complete basic CLI functionality
 - [ ]   Spanish (espanol) translation for CLI app
 
 Complete Rust web server
-- [ ]   Warp as server
+- [x]   Warp as server
 - [ ]   Reqwest for APIs
 - [ ]   Serde for parsing responses
 - [ ]   Maud for HTML templating
 
+- [ ]   Actually... refactor to Axum instead of Warp
+
 ### Moonshots
-- [ ]   Multi-language support (espanol first)
+- [ ]   Multi-language support (espanol first, russian second)
 
 * * *
 
