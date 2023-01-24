@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 rust_decimal = "1.15"
-bitverter_lib = {path = "../bitverter_lib"}
+bitverter_lib = {path = "../lib"}

@@ -1,5 +1,5 @@
 [workspace]
-members = ["bitverter_cli", "bitverter_lib", "bitverter_server"]
+members = ["cli", "lib", "server", "ui"]
 
 # authors = [ "kn0wmad <kn0wmad@protonmail.com>" ]
 
