@@ -2,6 +2,29 @@ use std::{ io, rc::Rc };
 
 // Take a value and apply the correct conversion to sats, based on denomination provided
 
+
+fn get_denom_from_input() -> String {
+    let mut denom;
+    loop {
+        denom = String::new();
+        println!("1) Sats,\n2) Bits,\n3) mBTC,\n4) BTC: ");
+        io::stdin().read_line(&mut denom).expect("Failed to read your input");
+        denom = match denom.trim().to_lowercase().as_str() {
+            "1" | "sats" => "sats".to_owned(),
+            "2" | "bits" => "bits".to_owned(),
+            "3" | "mbtc" => "mbtc".to_owned(),
+            "4" | "btc" => "btc".to_owned(),
+            _ => {
+                eprintln!("Must be one of the 4 options listed above");
+                continue;
+            },
+        };
+        println!("You have selected: {:?}", denom);
+        break;
+    }
+    denom
+}
+
 fn from_denom_to_sats(starting_denom: &str, val: Rc<String>) -> Option<Rc<String>> {
     match starting_denom.to_lowercase().trim() {
         "sats" => Some(val),
@@ -34,13 +57,8 @@ fn main() {
 // Create mutable variable starting_denom and bind to a new, empty instance of a String
 // Call read_line method to get user input, pass the &mut starting_denom argument to read_line
 // read_line takes standard input and places it into a String - trim the result and print back to user
-    let mut starting_denom = String::new();
-
-    println!("Enter your current denomination (Sats, Bits, mBTC, or BTC): ");
-    io::stdin().read_line(&mut starting_denom).expect("Failed to read your input");
-
-    let starting_denom = starting_denom.trim();
-    println!("You have selected: {:?}\n", starting_denom);
+    println!("Enter your current denomination");
+    let starting_denom = get_denom_from_input();
 
 // Repeat above process to request current value in the user's starting denomination, then perform sats conversion
     let mut starting_value = String::new();
@@ -53,13 +71,8 @@ fn main() {
         .expect("Please enter a valid denomination");
 
 // Repeat process from above again to get user's desired denomination
-    let mut desired_denom = String::new();
-
-    println!("Input your desired denomination (Sats, Bits, mBTC, or BTC): ");
-    io::stdin().read_line(&mut desired_denom).expect("Failed to read your input");
-
-    let desired_denom = desired_denom.trim();
-    println!("You have selected {:?}\n", desired_denom);
+    println!("Input your desired denomination");
+    let desired_denom = get_denom_from_input();
 
 // Take string of calculated value and return the full conversion to the user
 
