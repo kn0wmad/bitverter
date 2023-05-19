@@ -37,16 +37,19 @@ fn get_denom_from_input() -> String {
 
 // helper for getting a quantity of units
 fn get_quantity(units: &str) -> f64 {
-    let mut s = String::new();
+    loop {
+        let mut s = String::new();
 
-    println!("Input your current value in {:?}", units.to_lowercase());
-    stdin()
-        .read_line(&mut s)
-        .expect("\nFailed to read your input!");
-
-    let quantity: f64 = s.trim().parse().unwrap();
-
-    quantity
+        println!("Input your current value in {}", units.to_lowercase());
+        stdin()
+            .read_line(&mut s)
+            .expect("\nFailed to read your input!");
+        if let Ok(quantity) = s.trim().parse::<f64>() {
+            break quantity as f64;
+        } else {
+            println!("Huh?\n");
+        }
+    }
 }
 
 // return a quote from user-provided (base,quote,quantity)
@@ -68,7 +71,11 @@ fn main() {
     let quote_unit = get_denom_from_input();
 
     // convert
+    //TODO: improve roundoff
     let quote = bitverter_lib::convert(quantity, &base_unit, &quote_unit);
-
-    println!("{} {} = {} {}", quantity, &base_unit, quote, &quote_unit);
+    let scale = 8 - quote.log10().floor() as usize;
+    println!(
+        "{} {} = {:.*} {}",
+        quantity, &base_unit, scale, quote, &quote_unit
+    );
 }
