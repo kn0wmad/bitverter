@@ -73,7 +73,7 @@ fn main() {
     // convert
     //TODO: improve roundoff
     let quote = bitverter_lib::convert(quantity, &base_unit, &quote_unit);
-    let scale = 8 - quote.log10().floor() as usize;
+    let scale = 8_usize.saturating_sub(quote.log10().floor() as usize);
     println!(
         "{} {} = {:.*} {}",
         quantity, &base_unit, scale, quote, &quote_unit
