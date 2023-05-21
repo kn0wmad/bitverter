@@ -1,52 +1,19 @@
-use std::rc::Rc;
-use rust_decimal::prelude::*;
+use phf::phf_map;
 
-pub fn div(input: Rc<String>, scale: u32) -> Rc<String> {
-    let from_string = Decimal::from_str(&input);
-    let num = Decimal::new(1, scale);
+static CONV: phf::Map<&'static str, f64> = phf_map! {
+    "sats"   => 1e-8,
+    "finneys"=> 1e-7,
+    "ubtc"   => 1e-6,
+    "bits"   => 1e-5,
+    "mbtc"   => 1e-3,
+    "cbtc"   => 1e-2,
+    "btc"    => 1e0,
+    "dabtc"  => 1e2,
+    "kbtc"   => 1e3,
+};
 
-    match from_string {
-        Ok(divisor) => {
-            Rc::new(divisor.checked_div(num).unwrap().to_string())
-        }
-        Err(_) => Rc::new("Error".to_owned())
-    }
-}
-
-pub fn mul(input: Rc<String>, scale: u32) -> Rc<String> {
-    let from_string = Decimal::from_str(&input);
-    let num = Decimal::new(1, scale);
-
-    match from_string {
-        Ok(muliplier) => {
-            Rc::new(muliplier.checked_mul(num).unwrap().to_string())
-        }
-        Err(_) => Rc::new("Error".to_owned())
-    }
-}
-
-pub fn sats_to_btc(input: Rc<String>) -> Rc<String> {
-    mul(input, 8) // input * 100000000
-}
-
-pub fn sats_to_mbtc(input: Rc<String>) -> Rc<String> {
-    mul(input, 5) // input * 100000
-}
-
-pub fn sats_to_bits(input: Rc<String>) -> Rc<String> {
-    mul(input, 2) // input * 100
-}
-
-pub fn bits_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 2) // input / 100
-}
-
-pub fn mbtc_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 5) // input / 100000
-}
-
-pub fn btc_to_sats(input: Rc<String>) -> Rc<String> {
-    div(input, 8) // input / 100000000
+pub fn convert(qty: f64, base: &str, quote: &str) -> f64 {
+    qty * (CONV[&base] / CONV[&quote])
 }
 
 #[cfg(test)]
@@ -54,16 +21,19 @@ mod tests {
     use super::*;
 
     #[test]
-    fn check_divide() {
-        assert_eq!(Rc::new("152135088".to_string()), btc_to_sats(Rc::new("1.52135088".to_string())));
-        assert_eq!(Rc::new("100000000".to_string()), btc_to_sats(Rc::new("1".to_string())));
-        // assert_eq!(Rc::new("5786134457").to_string()), btc_to_
-    }
+    fn check_convert() {
+        // test some units
+        assert_eq!(1.0, convert(100000000.0, "sats", "btc"));
+        assert_eq!(1.0, convert(10.0, "sats", "finneys"));
+        assert_eq!(1000000.0, convert(1.0, "btc", "ubtc"));
+        assert_eq!(100000.0, convert(1.0, "mbtc", "sats"));
+        assert_eq!(1.0, convert(10000000.0, "finneys", "btc"));
+        assert_eq!(0.001, convert(1.0, "ubtc", "mbtc"));
 
-    #[test]
-    fn check_multiply() {
-        assert_eq!(Rc::new("1.000000000".to_string()), sats_to_btc(Rc::new("100000000.0".to_string())));
-        assert_eq!(Rc::new("1.52135088".to_string()), sats_to_btc(Rc::new("152135088".to_string())));
-        assert_eq!(Rc::new("0.10000".to_string()), sats_to_mbtc(Rc::new("10000".to_string())));
+        // other tests
+        assert_eq!(1.52135088, convert(152135088.0, "sats", "btc"));
+
+        // all the bitcoin ever
+        assert_eq!(2100000000000000.0, convert(21000000.0, "btc", "sats"));
     }
 }
