@@ -27,7 +27,7 @@ Currently Bitverter is only built for the Linux command line.  If you are even a
 
 ## Bitverter Roadmap
 
-**Unfortunately, I have shifted focus, but do plan to revisit this project in the mid-term**
+**I have shifted focus, but do plan to revisit this project soon**
 
 Currency Conversion library
 - [x]   Currency conversion library to convert from btc to mbtc, bits, sats and vice versa
@@ -41,18 +41,19 @@ Complete basic CLI functionality
 - [ ]   Add a match statement to require a valid denomination
 - [ ]   Iced GUI alpha release
 - [ ]   Convert to/from USD
-- [ ]   Spanish (espanol) translation for CLI app
+- [ ]   Spanish (espanol) translation
 
 Complete Rust web server
 - [x]   Warp as server
 - [ ]   Reqwest for APIs
 - [ ]   Serde for parsing responses
 - [ ]   Maud for HTML templating
-
 - [ ]   Actually... refactor to Axum instead of Warp
+- [ ]   Trunk?
+- [ ]   Publish
 
 ### Moonshots
-- [ ]   Multi-language support (espanol first, russian second)
+- [ ]   Multi-language support
 
 * * *
 
