@@ -1,63 +1,26 @@
-use warp::Filter;
-use maud::{ DOCTYPE, html, Markup, Render };
-// use serde::{ Serialize, Deserialize };
-extern crate pretty_env_logger;
-#[macro_use] extern crate log;
+use std::error::Error;
+use std::net::SocketAddr;
 
-pub struct Stylesheet(&'static str);
+use axum::{routing::get, routing::get_service, Router};
+use tower_http::services::ServeDir;
 
-impl Render for Stylesheet {
-    fn render(&self) -> Markup {
-        html! {
-            link rel="stylesheet" type="text/css" href=(self.0);
-        }
-    }
+async fn test() -> &'static str {
+    "Welcome to Bitverter!"
 }
-
-// const API_URL: &str = "https://api.nomics.com/v1/currencies/ticker?key={}&ids=BTC&interval=1d&convert=USD";
-
-// #[derive(Deserialize)]
-// struct NomicsPriceResponse {
-//     price: String,
-// }
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), Box<dyn Error>> {
+    // build application with a single route
+    let app = Router::new()
+        .fallback_service(get_service(ServeDir::new("./site")))
+        .route("/api/test", get(test).post(test));
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3333));
+    println!("Listening on {}", addr);
+    let listener = tokio::net::TcpListener::bind(addr).await?;
+    axum::serve(listener, app).await?;
+    Ok(())
 
-    pretty_env_logger::init();
-
-    // GET /
-    let index = warp::get()
-        .and(warp::path::end())
-        .and(warp::fs::file("./index.html"));
-
-    let site = 
-        warp::path("bitverter-server")
-        .and(warp::fs::dir("./bitverter-server/"));
-
-    let routes = index.or(site);
-
-    info!("Serving...");
-    
-    // Serve site on 127.0.0.1:3030
-    warp::serve(routes)
-        .run(([127, 0, 0, 1], 3030))
-        .await;
-}
-
-fn header(page_title: &str) -> Markup {
-    html! {
-        (DOCTYPE)
-        meta charset="utf-8";
-        meta name="viewport" content="width=device-width, initial-scale=1";
-        title { (page_title) }
-    }
-}
-
-pub fn page(title: &str) -> Markup {
-    html! {
-        // Add the header markup to the page
-        (header(title))
-        h1 { (title) }
-    }
+    // // run app with hyper, listening globally on port 3333
+    // let listener = tokio::net::TcpListener::bind("0.0.0.0:3333").await.unwrap();
+    // axum::serve(listener, app).await.unwrap();
 }

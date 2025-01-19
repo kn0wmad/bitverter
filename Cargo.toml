@@ -1,7 +1,9 @@
 [workspace]
+resolver = "2"
+
 members = ["bitverter_cli", "bitverter_lib", "bitverter_server"]
 
-# authors = [ "kn0wmad <kn0wmad@protonmail.com>" ]
+# authors = ["kn0wmad <kn0wmad@protonmail.com>"]
 
 # description = [ "A basic bitcoin denomination conversion tool" ]
 

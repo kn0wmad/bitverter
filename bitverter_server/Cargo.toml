@@ -2,14 +2,9 @@
 name = "bitverter_server"
 version = "0.1.0"
 authors = ["kn0wmad <kn0wmad@protonmail.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+edition = "2021"
 
 [dependencies]
-warp = "0.3.3"
-tokio = { version = "1.24.1", features = ["full"] }
-log = "0.4"
-pretty_env_logger = "0.4.0"
-maud = "0.24.0"
-serde = "1.0.117"
+axum = "0.8.1"
+tokio = { version = "1.43.0", features = ["rt-multi-thread"] }
+tower-http = { version = "0.6.2", features = ["fs"] }
