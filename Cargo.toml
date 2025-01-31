@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 
-members = ["bitverter_cli", "bitverter_lib", "bitverter_server"]
+members = ["bitverter_cli", "bitverter_lib", "bitverter_server", "bitverter_ui"]
 
 # authors = ["kn0wmad <kn0wmad@protonmail.com>"]
 
