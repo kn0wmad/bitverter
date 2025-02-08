@@ -3,16 +3,18 @@ resolver = "2"
 
 members = ["bitverter_cli", "bitverter_lib", "bitverter_server", "bitverter_ui"]
 
-# authors = ["kn0wmad <kn0wmad@protonmail.com>"]
+authors = ["kn0wmad <kn0wmad@protonmail.com>"]
 
-# description = [ "A basic bitcoin denomination conversion tool" ]
+description = ["A basic bitcoin conversion tool"]
 
 # homepage = [ "bitverter.io - not live yet" ]
 
-# documentation = [ "Check README for now" ]
+documentation = ["github.com/kn0wmad/bitverter"]
 
-# repository = [ "github.com/kn0wmad/osa" ]
+repository = ["github.com/kn0wmad/bitverter"]
 
-# keywords = [ "bitcoin, anarchy, autonomy, conversion, converter, cryptocurrency, rust" ]
+keywords = [
+    "bitcoin, anarchy, autonomy, conversion, converter, cryptocurrency, rust",
+]
 
-# categories = [ "bitcoin, anarchy, converter, rust" ]
+categories = ["bitcoin, anarchy, converter, rust"]
