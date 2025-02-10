@@ -5,6 +5,7 @@ authors = ["kn0wmad <kn0wmad@protonmail.com>"]
 edition = "2021"
 
 [dependencies]
+bitverter_cli = { path = "../bitverter_cli" }
 axum = "0.8.1"
 tokio = { version = "1.43.0", features = ["rt-multi-thread"] }
 tower-http = { version = "0.6.2", features = ["fs"] }
