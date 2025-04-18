@@ -1,5 +1,7 @@
+//! Bitverter Conversion Library
 use phf::phf_map;
 
+/// Map of denominations to their corresponding values
 static CONV: phf::Map<&'static str, f64> = phf_map! {
     "sats"   => 1e-8,
     "finneys"=> 1e-7,
@@ -12,10 +14,12 @@ static CONV: phf::Map<&'static str, f64> = phf_map! {
     "kbtc"   => 1e3,
 };
 
+/// Conversion function for changing denominations
 pub fn convert(qty: f64, base: &str, quote: &str) -> f64 {
     qty * (CONV[&base] / CONV[&quote])
 }
 
+// Testing
 #[cfg(test)]
 mod tests {
     use super::*;
