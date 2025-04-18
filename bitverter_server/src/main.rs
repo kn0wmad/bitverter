@@ -2,25 +2,23 @@ use std::error::Error;
 use std::net::SocketAddr;
 
 use axum::{
-    extract::Query,
-    response::{Html, IntoResponse},
     routing::{get, get_service},
     Router,
 };
 use tower_http::services::ServeDir;
 
-#[derive(Debug)]
-struct BvParams {
-    denomination: Option<String>,
-}
+// #[derive(Debug)]
+// struct BvParams {
+//     denomination: Option<String>,
+// }
 
-// Handler for Input
-async fn handler_bv_input(Query(params): Query<BvParams>) -> impl IntoResponse {
-    println!("->> {:<12} - handler_bv_input - {params:?}", "HANDLER");
+// // Handler for Input
+// async fn handler_bv_input(Query(params): Query<BvParams>) -> impl IntoResponse {
+//     println!("->> {:<12} - handler_bv_input - {params:?}", "HANDLER");
 
-    let denomination = params.denomination.as_deref().unwrap_or("Bitcoin");
-    Html(format!("Denomination: {denomination}"))
-}
+//     let denomination = params.denomination.as_deref().unwrap_or("Bitcoin");
+//     Html(format!("Denomination: {denomination}"))
+// }
 
 // Test API
 async fn test() -> &'static str {
