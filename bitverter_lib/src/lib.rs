@@ -15,8 +15,8 @@ static CONV: phf::Map<&'static str, f64> = phf_map! {
 };
 
 /// Conversion function for changing denominations
-pub fn convert(qty: f64, base: &str, quote: &str) -> f64 {
-    qty * (CONV[&base] / CONV[&quote])
+pub fn convert(input_quantity: f64, base_unit: &str, quote_unit: &str) -> f64 {
+    input_quantity * (CONV[&base_unit] / CONV[&quote_unit])
 }
 
 // Testing

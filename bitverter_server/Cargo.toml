@@ -9,3 +9,6 @@ bitverter_lib = { path = "../bitverter_lib" }
 axum = "0.8.1"
 tokio = { version = "1.43.0", features = ["rt-multi-thread"] }
 tower-http = { version = "0.6.2", features = ["fs"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+axum-macros = "0.5.0"

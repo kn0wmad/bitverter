@@ -10,8 +10,33 @@
     </head>
 
     <body style="margin: 0; padding: 0; width: 100%; height: 100%">
-        <h1>BITVERTER</h1>
-        <h2>Welcome!!</h2>
-        <p>Site under maintenance...</p>
+      <h1>BITVERTER</h1>
+      <h2>Welcome!!</h2>
+      <p>Site under maintenance...</p>
+
+      <!-- Conversion form -->
+      <form action="/api/convert" method="post">
+        <label for="quantity">Quantity:</label>
+          <input type="text" id="quantity" name="quantity"><br><br>
+        <label for="base_unit">Base Unit:</label>
+          <select id="base_unit" name="base_unit">
+              <option value="sats">Satoshis</option>
+              <option value="finneys">Finneys</option>
+              <option value="bits">Bits</option>
+              <option value="ubtc">uBTC</option>
+              <option value="mbtc">mBTC</option>
+              <option value="btc">BTC</option>
+          </select><br><br>
+        <label for="quote_unit">Quote Unit:</label>
+          <select id="quote_unit" name="quote_unit">
+              <option value="sats">Satoshis</option>
+              <option value="finneys">Finneys</option>
+              <option value="bits">Bits</option>
+              <option value="ubtc">uBTC</option>
+              <option value="mbtc">mBTC</option>
+              <option value="btc">BTC</option>
+          </select><br><br>
+        <input type="submit" value="Convert">
+      </form>
     </body>
 </html>
