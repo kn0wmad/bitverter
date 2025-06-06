@@ -61,19 +61,36 @@ mod test {
     }
 
     #[tokio::test]
-    async fn should_return_100_000_000_sats_when_given_1_bitcoin() {
+    async fn should_return_100_000_000_sats_when_given_1_btc() {
         let client = reqwest::Client::new();
 
-         let form_data = [
-             ("quantity", "1"),
-             ("base_unit", "btc"),
-             ("quote_unit", "sats"),
-         ];
+        let form_data = [
+            ("quantity", "1"),
+            ("base_unit", "btc"),
+            ("quote_unit", "sats"),
+        ];
 
-         let res = client.post("http://localhost:3333/api/convert")
+        let res = client.post("http://localhost:3333/api/convert")
              .form(&form_data).send().await.unwrap();
 
         let conversion_amount = res.text().await.unwrap();
-        assert_eq!(conversion_amount, 100000000.to_string());
+        assert_eq!(conversion_amount, 100_000_000.to_string());
+    }
+
+    #[tokio::test]
+    async fn should_return_1_btc_when_given_100_000_000_sats() {
+        let client = reqwest::Client::new();
+
+        let form_data = [
+            ("quantity", "100000000"),
+            ("base_unit", "sats"),
+            ("quote_unit", "btc"),
+        ];
+
+        let res = client.post("http://localhost:3333/api/convert")
+             .form(&form_data).send().await.unwrap();
+
+        let conversion_amount = res.text().await.unwrap();
+        assert_eq!(conversion_amount, 1.to_string());
     }
 }
